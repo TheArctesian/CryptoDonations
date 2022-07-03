@@ -1,4 +1,4 @@
-# Pay Me Contracts  
+# Crypto Donations
 
 ## Overview 
 A collectiton of pay me widgets intended for open source projects
