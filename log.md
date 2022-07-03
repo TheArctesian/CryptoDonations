@@ -9,3 +9,16 @@
 <strong>Description: </strong> <em>What happened</em>
 
 <hr>
+<strong>Name: </strong>Arctesian 
+<br>
+<strong>Time: </strong> 20:53 
+<br>
+<strong>Date: </strong>07.02.2022 
+<br>
+<strong>Goal: </strong>Initing
+<br>
+<strong>Description: </strong>
+Started up everything
+
+
+<hr>
