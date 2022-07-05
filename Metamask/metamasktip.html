@@ -1,0 +1,86 @@
+<!doctype html>
+<style>
+
+.tip-button {
+    width: 8rem;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  background-color: #f6851ba2;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+  border-radius: 2rem;
+}
+img{
+    margin: auto;
+    width: 5rem;
+}
+input{
+    border:none;
+    border-radius: 1rem;
+    background-color: #E2761B;
+    margin: auto;
+    text-align: center;
+    color: white;
+    width: 6rem;
+}
+p1{
+    margin: auto;
+    margin-top: .2rem;
+    padding: .5rem;
+    border-radius: 1rem;
+    text-align: center;
+    color: white;
+    background-color: #e21b1bb9;
+}
+
+</style>
+
+
+  </head>
+
+  <body>
+    <div class="tip-button">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/36/MetaMask_Fox.svg/1200px-MetaMask_Fox.svg.png" alt="MetaMask Logo">
+        <input type="text" id="amount" placeholder="Enter tip in eth">
+        <p1>Tip</p1>
+    </div>
+    <div class="message"></div>
+  </body>
+
+<script>
+
+var MY_ADDRESS = '0xc7AfE4114E3b78cB22Ec7EbDA11AD40199a9Cb96'
+
+var tipButton = document.querySelector('.tip-button')
+
+tipButton.addEventListener('click', function() {
+
+  if (typeof web3 === 'undefined') {
+    return renderMessage('<div>You need to install <a href=“https://metmask.io“>MetaMask </a> to use this feature.  <a href=“https://metmask.io“>https://metamask.io</a></div>')
+  }
+
+  var user_address = web3.eth.accounts[0]
+
+  web3.eth.sendTransaction({
+    to: MY_ADDRESS,
+    from: user_address,
+    value: web3.toWei(amount.value, 'ether'),
+  }, function (err, transactionHash) {
+    if (err) return renderMessage('There was a problem!: ' + err.message)
+
+    // If you get a transactionHash, you can assume it was sent,
+    // or if you want to guarantee it was received, you can poll
+    // for that transaction to be mined first.
+    renderMessage('Thanks for the generosity!!')
+  })
+})
+
+function renderMessage (message) {
+  var messageEl = document.querySelector('.message')
+  messageEl.innerHTML = message
+}
+
+</script>
+
+</html>
